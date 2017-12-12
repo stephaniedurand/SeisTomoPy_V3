@@ -1,0 +1,13 @@
+      integer lmin,lmax,lmmax,nlat,nlong
+      parameter(lmin=0,lmax=60,lmmax=(lmax+1)*(lmax+2)/2)
+      parameter(nlat=128,nlong=256)
+c
+c     The four following arrays contains the Plm, d Plm /d teta, and
+c     1/sin teta d Plm /d phi for all degrees and orders up to 32 
+c     (index lmmax) and all the latitudes (index nlat). znorm is
+c     the normalization.
+c
+      real*8 ylm(lmmax,nlat/2),dtylm(lmmax,nlat/2),dpylm(lmmax,nlat/2)
+      real*8 znorm(lmmax)
+      common/poli/ylm,dtylm,dpylm,znorm
+c
