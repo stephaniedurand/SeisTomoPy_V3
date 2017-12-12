@@ -56,6 +56,6 @@ $ ipython -m SeisTomoPy.gui
 
 The graphical interface should pop-up.
 
-#Copyright
+# Copyright
 
 Durand S., R. Abreu, C. Thomas, 2017, SeisTomoPy: Fast visualization, comparison and calculations in global tomographic models, Seis. Res. Lett., ACCEPTED
