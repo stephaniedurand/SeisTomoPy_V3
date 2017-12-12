@@ -29,6 +29,7 @@ import re
 import SeisTomoPy
 
 DIR = os.path.dirname(os.path.abspath(__file__))
+DIR_OR = os.getcwd()
 # print DIR
 # DIR = '/Users/durand/Travail/Programmes/SEISTOMOPY_PROJECT/SeisTomoPy_Valpha/SeisTomoPy/gui/'
 # print os.getcwd()
@@ -907,7 +908,7 @@ class Window(QtWidgets.QMainWindow):
             return
         if self.corr_file4.endswith('.xy'):
             self.ui.label_48.setText(os.path.basename(self.corr_file4))
-            filename7 = 'fortran_files/input_files/event_file_path.xy'
+            filename7 = DIR + '/../fortran_files/input_files/event_file_path.xy'
             shutil.copy2(self.corr_file4,filename7)
         else:
             raise IOError('unknown file type *.%s' %
@@ -950,7 +951,7 @@ class Window(QtWidgets.QMainWindow):
         elif tomo_choice_time-1 == 6:
             model_path = 'SGLOBE'
 
-        G = np.loadtxt(DIR + '/../SeisTomoPy_files/timepy_data_file.xy')
+        G = np.loadtxt(DIR + '/../fortran_files/output_files_time/timepy_data_file.xy')
         ELAT = G[:,0]
         ELON = G[:,1]
         EDEPTH = G[:,2]
@@ -964,8 +965,8 @@ class Window(QtWidgets.QMainWindow):
         else:
         	PHASES = ['ttall']
 
-        sol_filename = DIR + '/../SeisTomoPy_files/travel_times_info.out'
-        sol_filename1 = DIR + '/../SeisTomoPy_files/travel_times.out'
+        sol_filename = DIR + '/../fortran_files/output_files_time/travel_times_info.out'
+        sol_filename1 = DIR + '//../fortran_files/output_files_time/travel_times.out'
         solution_file = open(sol_filename, 'w') # open travel time file
         solution_file1 = open(sol_filename1, 'w') # open travel time file
 
@@ -1026,7 +1027,7 @@ class Window(QtWidgets.QMainWindow):
         if os.path.isdir(str(selected_directory6) + '/travel_times_output'):
             QMessageBox.critical(None, "Message", "This directory already exists")
         else:
-            shutil.copytree(DIR + '/SeisTomoPy_files', str(selected_directory6) + '/travel_times_output')
+            shutil.copytree(DIR + '/../fortran_files/output_files_time', str(selected_directory6) + '/travel_times_output')
 
     def on_loadfile_time_released(self):
         pwd = os.getcwd()
@@ -1036,7 +1037,7 @@ class Window(QtWidgets.QMainWindow):
             return
         if self.corr_file6.endswith('.xy'):
             self.ui.label_115.setText(os.path.basename(self.corr_file6))
-            filename7 = DIR + '/../SeisTomoPy_files/timepy_data_file.xy'
+            filename7 = DIR + '/../fortran_files/output_files_time/timepy_data_file.xy'
             shutil.copy2(self.corr_file6,filename7)
         else:
             raise IOError('unknown file type *.%s' %
@@ -1284,9 +1285,11 @@ class Window(QtWidgets.QMainWindow):
                 self.ui.label_37.setText('')
                 sp1 =self.ax_corr.plot(sp[:,0], sp[:,1], linewidth=1.0,color="grey",marker="d", label='from file-from file')
 
+        os.chdir(DIR)
         conf66 = np.loadtxt('conf66.dat')
         conf90 = np.loadtxt('conf90.dat')
         conf95 = np.loadtxt('conf95.dat')
+        os.chdir(DIR_OR)
         conf =self.ax_corr.plot(conf66[:,0], conf66[:,1], linewidth=1.0,color="silver", ls='--',label='Confidence level 66%')
         conf =self.ax_corr.plot(conf90[:,0], conf90[:,1], linewidth=1.0,color="gray", ls='--',label='Confidence level 90%')
         conf =self.ax_corr.plot(conf95[:,0], conf95[:,1], linewidth=1.0,color="black", ls='--',label='Confidence level 95%')
@@ -1324,7 +1327,7 @@ class Window(QtWidgets.QMainWindow):
             return
         if self.corr_file1.endswith('.xyz'):
             self.ui.label_33.setText(os.path.basename(self.corr_file1))
-            filename6 = 'fortran_files/input_files/map_file1.xyz'
+            filename6 = DIR + '/../fortran_files/input_files/map_file1.xyz'
             shutil.copy2(self.corr_file1,filename6)
         else:
             raise IOError('unknown file type *.%s' %
@@ -1338,7 +1341,7 @@ class Window(QtWidgets.QMainWindow):
             return
         if self.corr_file2.endswith('.xyz'):
             self.ui.label_37.setText(os.path.basename(self.corr_file2))
-            filename6 = 'fortran_files/input_files/map_file2.xyz'
+            filename6 = DIR + '/../fortran_files/input_files/map_file2.xyz'
             shutil.copy2(self.corr_file2,filename6)
         else:
             raise IOError('unknown file type *.%s' %
