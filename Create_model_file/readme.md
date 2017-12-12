@@ -10,4 +10,4 @@ and lat ranges from -89 to 89 with  a step of 1 degree
 
 3) Go to directory src/ and run make clean, make and ./main. This will create two model files YOURMODEL_1km.sph and YOURMODEL_5km.sph that you will need in SeisTomoPy. This can take several minutes to be done.
 
-4) Copy these two model files in ../fortran_files/models
+4) Copy these two model files in ../SeisTomoPy/fortran_files/models
