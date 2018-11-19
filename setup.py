@@ -31,11 +31,7 @@ setup_config = dict(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-<<<<<<< HEAD
     version='3.0.0',
-=======
-    version='2.0.0',
->>>>>>> d7dfdcb08f337e93fd5f5d5846ae04dbf20833a4
 
     description='Python tools for using global tomographic models',
     long_description='SeisTomoPy is a new Python tool that facilitates \
