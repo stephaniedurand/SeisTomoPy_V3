@@ -102,7 +102,7 @@ setup_config = dict(
     # your project is installed. For an analysis of "install_requires" vs pip's
     # requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=['numpy >= 1.11.0','obspy >= 1.0.1','scipy >= 0.17.0','pyqtgraph >= 0.9.10','basemap >= 1.0.7','matplotlib >= 2.0.2','pyproj >= 1.0','proj4 >= 5.0','proj.4 >= 4.0','geopandas >= 0.0.0'],
+    install_requires=['numpy >= 1.11.0','obspy >= 1.0.1','scipy >= 0.17.0','pyqtgraph >= 0.9.10','basemap >= 1.0.7','matplotlib >= 2.0.2','pyproj >= 1.0','proj4 = 5.0.1','proj.4 >= 4.0','geopandas >= 0.0.0'],
 
     # List additional groups of dependencies here (e.g. development
     # dependencies). You can install these using the following syntax,
