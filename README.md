@@ -38,6 +38,12 @@ $ cd SeisTomoPy
 
 $ pip install -e .
 
+$ cd SeisTomoPy/SeisTomoPy_source/fortran_files/src
+
+$ make clean
+
+$ make all
+
 # User Manual
 
 A Documentation is provided in SeisTomoPy/Documentation/ directory.
@@ -58,4 +64,4 @@ The graphical interface should pop-up.
 
 # Copyright
 
-Durand S., R. Abreu, C. Thomas, 2017, SeisTomoPy: Fast visualization, comparison and calculations in global tomographic models, Seis. Res. Lett., ACCEPTED
+Durand S., R. Abreu, C. Thomas, 2017, SeisTomoPy: Fast visualization, comparison and calculations in global tomographic models, Seis. Res. Lett., 89(2A), 658-667

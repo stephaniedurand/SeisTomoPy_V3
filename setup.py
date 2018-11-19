@@ -13,9 +13,8 @@ from distutils.ccompiler import CCompiler
 from distutils.errors import DistutilsExecError, CompileError
 from distutils.unixccompiler import UnixCCompiler
 from setuptools.extension import Extension
-import urllib
 import zipfile
-
+from os.path import expanduser
 import inspect
 import os
 from subprocess import Popen, PIPE
@@ -23,7 +22,7 @@ import sys
 
 
 here = path.abspath(path.dirname(__file__))
-
+home = expanduser("~")
 DIR_OR = os.path.dirname(os.path.abspath(__file__))
 
 # Get the long description from the README file
@@ -36,7 +35,7 @@ setup_config = dict(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='1.3.0',
+    version='3.0.0',
 
     description='Python tools for using global tomographic models',
     long_description=long_description,
@@ -57,7 +56,7 @@ setup_config = dict(
         #   3 - Alpha
         #   4 - Beta
         #   5 - Production/Stable
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
 
         # Indicate who your project is intended for
         'Intended Audience :: Science/Research',
@@ -136,14 +135,39 @@ setup_config = dict(
 
 if __name__ == "__main__":
     setup(**setup_config)
+    if not os.path.isdir(home + '/SeisTomoPy_files'):
+        os.mkdir(home + '/SeisTomoPy_files')
+    if not os.path.isdir(home + '/SeisTomoPy_files/output_files_corr'):
+        os.mkdir(home + '/SeisTomoPy_files/output_files_corr')
+    if not os.path.isdir(home + '/SeisTomoPy_files/output_files_cross'):
+        os.mkdir(home + '/SeisTomoPy_files/output_files_cross')
+    if not os.path.isdir(home + '/SeisTomoPy_files/output_files_map'):
+        os.mkdir(home + '/SeisTomoPy_files/output_files_map')
+    if not os.path.isdir(home + '/SeisTomoPy_files/output_files_spectre'):
+        os.mkdir(home + '/SeisTomoPy_files/output_files_spectre')
+    if not os.path.isdir(home + '/SeisTomoPy_files/output_files_time'):
+        os.mkdir(home + '/SeisTomoPy_files/output_files_time')
+    if not os.path.isdir(home + '/SeisTomoPy_files/input_files'):
+        os.mkdir(home + '/SeisTomoPy_files/input_files')
+    if not os.path.isdir(DIR_OR + '/SeisTomoPy_source/fortran_files/bin'):
+        os.mkdir(DIR_OR + '/SeisTomoPy_source/fortran_files/bin')        
+    if not os.path.isdir(DIR_OR + '/SeisTomoPy_source/fortran_files/log'):
+        os.mkdir(DIR_OR + '/SeisTomoPy_source/fortran_files/log')        
+    if not os.path.isdir(DIR_OR + '/SeisTomoPy_source/fortran_files/obj'):
+        os.mkdir(DIR_OR + '/SeisTomoPy_source/fortran_files/obj')   
 
     DIR_OR = os.path.dirname(os.path.abspath(__file__))
-    os.chdir(DIR_OR + '/SeisTomoPy/fortran_files/src')
+    os.chdir(DIR_OR + '/SeisTomoPy_source/fortran_files/src')
     os.system('make clean')
     os.system('make all')
 
     os.chdir('../')
-    urllib.urlretrieve("http://earth.uni-muenster.de/~durand/models.zip","models.zip")
+    if sys.version_info[0] == 2:
+        import urllib
+        urllib.urlretrieve("http://earth.uni-muenster.de/~durand/models.zip","models.zip")
+    else:
+        import urllib.request 
+        urllib.request.urlretrieve("http://earth.uni-muenster.de/~durand/models.zip","models.zip")
     zip_ref = zipfile.ZipFile('models.zip', 'r')
     zip_ref.extractall()
     zip_ref.close()
