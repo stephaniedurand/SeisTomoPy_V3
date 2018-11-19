@@ -30,7 +30,7 @@ SeisTomoPy has a number of dependencies listed below.
 
     obspy 1.1.0
 
-    pyqt 5.6.0
+    pyqt 5.9.2
 
     scipy 1.1.0
 
