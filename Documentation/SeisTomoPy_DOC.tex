@@ -395,10 +395,30 @@ Clone the git repository and install in an editable fashion:\\
 
 \section{Reported bugs}
 
-There is currently some bugs with the installation of Basemap package with Python 3.6 or more. This is not related to SeisTomoPy and the solution seems to depend on the installation of conda the user has. Many people reported that an installation of 
+There is currently some bugs with the installation of Basemap package with the last version of anaconda.  It looks like
+
+\verb?.../anaconda/lib/python2.7/site-packages/mpl_toolkits/basemap/__init__.py in <module>()?\\
+\verb?    153?\\
+\verb?    154 # create dictionary that maps epsg codes to Basemap kwargs.?\\
+\verb?--> 155 pyproj_datadir = os.environ['PROJ_LIB']?\\
+\verb?    156 epsgf = open(os.path.join(pyproj_datadir,'epsg'))?\\
+\verb?    157 epsg_dict={}?\\
+
+\verb?.../anaconda/lib/python2.7/UserDict.pyc in __getitem__(self, key)?\\
+\verb?     38         if hasattr(self.__class__, "__missing__"):?\\
+\verb?     39             return self.__class__.__missing__(self, key)?\\
+\verb?---> 40         raise KeyError(key)?\\
+\verb?     41     def __setitem__(self, key, item): self.data[key] = item?\\
+\verb?     42     def __delitem__(self, key): del self.data[key]?\\
+
+\verb?KeyError: 'PROJ_LIB'?\\
+This is not related to SeisTomoPy and the solution seems to depend on the installation of conda and anaconda the user has. Many people reported that re-installing proj4 works 
 
 \verb?$ conda install -c conda-forge  proj4?\\
-works. But it may not be sufficient.
+We also found that it can be solved installing geopandas
+
+\verb?$ conda install geopandas?\\
+Please let us know if none of these solutions work.
 
   \section{How to use SeisTomoPy class}\label{how-to-use-SeisTomoPy-class }\label{important-starting-notes} 
 
@@ -980,7 +1000,6 @@ Two examples of path plots using the default tomographic models
     \adjustimage{max size={0.7\linewidth}{0.9\paperheight}}{SeisTomoPy_notebook/figures/pathpy_552.png}
     \end{center}
     
-\newpage
     \begin{Verbatim}[commandchars=\\\{\},fontsize=\footnotesize]
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   An example of path plot using a model file 
@@ -1105,7 +1124,7 @@ In the example below, we first plot the paths to see which part of the mantle th
     \end{center}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
+
     \section{How to use SeisTomoPy GUI}
 
 It is possible to use SeisTomoPy tools via the GUI graphical interface. To do so the user has to launch the GUI interface (see Figure \ref{welcome}). With the top bar it is possible to navigate through the different tools. Each of them offer the possibility to save the plots as well as some output files. 
@@ -1116,13 +1135,6 @@ The user must run:
 \PY{k}{ipython} -m SeisTomPy.gui
 \end{Verbatim}
 
-\begin{figure}
-\begin{center}
-\includegraphics[scale=0.3]{SeisTomoPy_notebook/figures/welcome.png}
-\caption{Welcoming screen of SeisTomoPy GUI interface.}
-\label{welcome}
-\end{center}
-\end{figure}
 
     \subsection{Cross sections}\label{crosspy}
 
@@ -1130,6 +1142,15 @@ Go on the tab Cross section. A screen with a map at the bottom
 and an empty space at the top appears. The parameters are already set to
 default values so that clicking on the button PLOTTING (top
 right button) computes a cross section.\\
+
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.3]{SeisTomoPy_notebook/figures/welcome.png}
+\caption{Welcoming screen of SeisTomoPy GUI interface.}
+\label{welcome}
+\end{center}
+\end{figure}
 
 Various options are available.  First, it is possible to choose the
 location of the profile. To do so: 
@@ -1375,7 +1396,14 @@ they must contain two columns with the angle (in degrees) from the starting poin
 20 500
 \end{verbatim}
 
-\newpage
+\begin{figure}[t]
+\begin{center}
+\includegraphics[scale=0.35]{SeisTomoPy_notebook/figures/pathpy2.png}
+\caption{Summary of the different options in Path.}
+\label{pathpy2}
+\end{center}
+\end{figure}
+
 and \verb|station.xy|:
 
 \begin{verbatim}
@@ -1393,18 +1421,21 @@ phases should be provided. The list must contain the name of the seismic phases.
 the cross section with the wave paths appears (see Figure 7).
 \end{itemize}
 
-\begin{figure}
-\begin{center}
-\includegraphics[scale=0.35]{SeisTomoPy_notebook/figures/pathpy2.png}
-\caption{Summary of the different options in Path.}
-\label{pathpy2}
-\end{center}
-\end{figure}
+
 
 The plot can be saved by clicking on SAVE FIGURE and a \verb?path.pdf? file
 will appear at the chosen location.
 
 \subsection{Travel times}\label{timepy}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.35]{SeisTomoPy_notebook/figures/timepy.png}
+\caption{Summary of the different options in Travel time.}
+\label{timrpy}
+\end{center}
+\end{figure}
+
 
 The last tool is Travel time. For this the user needs to
 \begin{itemize}
@@ -1428,15 +1459,8 @@ calculations will appear in the empty space on the right (see Figure 8).
 The travel times can be saved by clicking on SAVE OUTPUT which will
 create a folder travel\_times\_output.
 
-\begin{figure}
-\begin{center}
-\includegraphics[scale=0.35]{SeisTomoPy_notebook/figures/timepy.png}
-\caption{Summary of the different options in Travel time.}
-\label{timrpy}
-\end{center}
-\end{figure}
 
-\newpage
+
 
 \section{Jupyter notebooks}\label{notebooks}
 
