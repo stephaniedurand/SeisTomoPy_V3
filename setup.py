@@ -25,20 +25,27 @@ here = path.abspath(path.dirname(__file__))
 home = expanduser("~")
 DIR_OR = os.path.dirname(os.path.abspath(__file__))
 
-# Get the long description from the README file
-with open(path.join(here, 'README.md'), encoding='utf-8') as f:
-    long_description = f.read()
-
 setup_config = dict(
     name='SeisTomoPy',
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
+<<<<<<< HEAD
     version='3.0.0',
+=======
+    version='2.0.0',
+>>>>>>> d7dfdcb08f337e93fd5f5d5846ae04dbf20833a4
 
     description='Python tools for using global tomographic models',
-    long_description=long_description,
+    long_description='SeisTomoPy is a new Python tool that facilitates \
+    the use of a suite of tomographic models available to the public, \
+    with a single programme. SeisTomoPy provides six tools that allow \
+    to visualize tomographic models, compare them and extract information \
+    for further scientific purposes. The tool comes with a graphical interface\
+    with intuitive buttons and simple parameters but the same information can \
+    also be gained by using the Python classes that can be run routinely \
+    in Python scripts.',
 
     # The project's main homepage.
     url='https://github.com/stephaniedurand/SeisTomoPy',
