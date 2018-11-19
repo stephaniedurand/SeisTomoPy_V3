@@ -38,12 +38,6 @@ $ cd SeisTomoPy
 
 $ pip install -e .
 
-$ cd SeisTomoPy/SeisTomoPy_source/fortran_files/src
-
-$ make clean
-
-$ make all
-
 # User Manual
 
 A Documentation is provided in SeisTomoPy/Documentation/ directory.
