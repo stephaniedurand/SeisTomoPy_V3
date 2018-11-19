@@ -32,7 +32,7 @@ conda install -c conda-forge matplotlib numpy obspy pyqt scipy pyqtgraph basemap
 
 # Installing SeisTomoPy
 
-$ git clone https://github.com/stephaniedurand/SeisTomoPy.git
+$ git clone https://github.com/stephaniedurand/SeisTomoPy_V3.git
 
 $ cd SeisTomoPy
 
@@ -40,11 +40,11 @@ $ pip install -e .
 
 # User Manual
 
-A Documentation is provided in SeisTomoPy/Documentation/ directory.
+A Documentation is provided in SeisTomoPy_V3/Documentation/ directory.
 
 # Tutorial
 
-A tutorial is available as a jupyter notebook. You can run it going into the folder SeisTomoPy/Documentation/TomoPy_notebook and running:
+A tutorial is available as a jupyter notebook. You can run it going into the folder SeisTomoPy_V3/Documentation/TomoPy_notebook and running:
 
 $ jupyter notebook
 
