@@ -14,9 +14,9 @@ SeisTomoPy has a number of dependencies listed below.
 
     Python 2.7, 3.5, 3.6
 
-    iPython 5.3.0
+    iPython 5.8.0
 
-    matplotlib 2.0.2
+    matplotlib 2.2.3
 
     basemap 1.2.0
 
@@ -26,13 +26,15 @@ SeisTomoPy has a number of dependencies listed below.
 
     proj.4 4.9.1
 
-    numpy 1.11.0
+    numpy 1.15.1
 
-    obspy 1.0.1
+    obspy 1.1.0
 
     pyqt 5.6.0
 
-    scipy 0.17.0
+    scipy 1.1.0
+
+    geopandas 0.3.0
 
 For installing the Python dependencies, please run :
 
