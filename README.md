@@ -28,7 +28,7 @@ SeisTomoPy has a number of dependencies listed below.
 
 For installing the Python dependencies, please run :
 
-conda install -c conda-forge matplotlib numpy obspy pyqt scipy pyqtgraph basemap
+conda install -c conda-forge matplotlib numpy obspy pyqt scipy pyqtgraph basemap geopandas
 
 # Installing SeisTomoPy
 
