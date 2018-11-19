@@ -1,6 +1,0 @@
-numpy>=1.11.0
-obspy>=1.0.1
-scipy>=0.17.0
-pyqtgraph>=0.9.10
-basemap>=1.0.7
-matplotlib>=2.0.2
