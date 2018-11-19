@@ -4,7 +4,6 @@ import os.path
 import imp
 import math
 from obspy.core import AttribDict
-from mpl_toolkits.basemap import Basemap
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 from obspy.taup import TauPyModel
@@ -25,6 +24,14 @@ import re
 # from geographiclib.geodesic import Geodesic
 from os.path import expanduser
 import mpl_toolkits.axisartist.floating_axes as floating_axes
+import geopandas
+# import conda 
+
+# conda_file_dir = conda.__file__
+# conda_dir = conda_file_dir.split('lib')[0]
+# proj_lib = os.path.join(os.path.join(conda_dir, 'share'), 'proj')
+# os.environ["PROJ_LIB"] = proj_lib
+from mpl_toolkits.basemap import Basemap
 
 DIR = os.path.dirname(os.path.abspath(__file__))
 home = expanduser("~")

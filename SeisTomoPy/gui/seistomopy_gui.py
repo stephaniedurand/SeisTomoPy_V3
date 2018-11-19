@@ -8,7 +8,6 @@ import math
 import subprocess, sys
 from obspy.core import AttribDict
 from PIL import Image, ImageTk
-from mpl_toolkits.basemap import Basemap
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 from obspy.taup import TauPyModel
@@ -31,6 +30,15 @@ from scipy.spatial import distance
 import re
 import SeisTomoPy as SeisTomoPy
 from os.path import expanduser
+import geopandas
+# import conda
+
+# conda_file_dir = conda.__file__
+# conda_dir = conda_file_dir.split('lib')[0]
+# proj_lib = os.path.join(os.path.join(conda_dir, 'share'), 'proj')
+# os.environ["PROJ_LIB"] = proj_lib
+from mpl_toolkits.basemap import Basemap
+
 
 home = expanduser("~")
 DIR2 = home + '/SeisTomoPy_files/'
