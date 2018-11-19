@@ -152,15 +152,15 @@ if __name__ == "__main__":
         os.mkdir(home + '/SeisTomoPy_files/output_files_time')
     if not os.path.isdir(home + '/SeisTomoPy_files/input_files'):
         os.mkdir(home + '/SeisTomoPy_files/input_files')
-    if not os.path.isdir(DIR_OR + '/SeisTomoPy_source/fortran_files/bin'):
-        os.mkdir(DIR_OR + '/SeisTomoPy_source/fortran_files/bin')        
-    if not os.path.isdir(DIR_OR + '/SeisTomoPy_source/fortran_files/log'):
-        os.mkdir(DIR_OR + '/SeisTomoPy_source/fortran_files/log')        
-    if not os.path.isdir(DIR_OR + '/SeisTomoPy_source/fortran_files/obj'):
-        os.mkdir(DIR_OR + '/SeisTomoPy_source/fortran_files/obj')   
+    if not os.path.isdir(DIR_OR + '/SeisTomoPy/fortran_files/bin'):
+        os.mkdir(DIR_OR + '/SeisTomoPy/fortran_files/bin')        
+    if not os.path.isdir(DIR_OR + '/SeisTomoPy/fortran_files/log'):
+        os.mkdir(DIR_OR + '/SeisTomoPy/fortran_files/log')        
+    if not os.path.isdir(DIR_OR + '/SeisTomoPy/fortran_files/obj'):
+        os.mkdir(DIR_OR + '/SeisTomoPy/fortran_files/obj')   
 
     DIR_OR = os.path.dirname(os.path.abspath(__file__))
-    os.chdir(DIR_OR + '/SeisTomoPy_source/fortran_files/src')
+    os.chdir(DIR_OR + '/SeisTomoPy/fortran_files/src')
     os.system('make clean')
     os.system('make all')
 
