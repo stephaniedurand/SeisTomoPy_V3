@@ -34,7 +34,7 @@ conda install -c conda-forge matplotlib numpy obspy pyqt scipy pyqtgraph basemap
 
 $ git clone https://github.com/stephaniedurand/SeisTomoPy_V3.git
 
-$ cd SeisTomoPy
+$ cd SeisTomoPy_V3
 
 $ pip install -e .
 
