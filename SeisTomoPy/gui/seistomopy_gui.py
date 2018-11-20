@@ -13,7 +13,7 @@ import matplotlib.image as mpimg
 from obspy.taup import TauPyModel
 from obspy import taup
 import numpy as np
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
+# from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
 from matplotlib.transforms import Affine2D
 from matplotlib.projections import PolarAxes
 from mpl_toolkits.axisartist import angle_helper
