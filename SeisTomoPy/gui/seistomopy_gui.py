@@ -1156,16 +1156,15 @@ class Window(QtWidgets.QMainWindow):
                 ev_distance = locations2degrees(ELAT[k],ELON[k],SLAT[k],SLON[k])
 
             for i_phase in range(len(PHASES)):
-            	print(PHASES[i_phase])
                 if stalen == 1:
                     arrivals = model.get_ray_paths(source_depth_in_km=EDEPTH,distance_in_degree=ev_distance,phase_list=[PHASES[i_phase]])
                 else:
                     arrivals = model.get_ray_paths(source_depth_in_km=EDEPTH[k],distance_in_degree=ev_distance,phase_list=[PHASES[i_phase]])
 
-            	if len(arrivals) == 0:
-            		big_string = big_string + PHASES[i_phase] + ' does not exist \n' +\
-            		 '----------------------------------------------------------------------------'+ '\n'         
-            	else:
+                if len(arrivals) == 0:
+                    big_string = big_string + PHASES[i_phase] + ' does not exist \n' + \
+                    '----------------------------------------------------------------------------'+ '\n'
+                else:
                     arrival = arrivals[0]
                     if arrival.name != PHASES[i_phase]:
                             big_string = big_string + PHASES[i_phase] + ' does not exist \n' +\
@@ -1590,12 +1589,12 @@ class Window(QtWidgets.QMainWindow):
         	QMessageBox.critical(None, "Message", "This directory already exists in this directory")
         else:
         	shutil.copytree(DIR2 + '/output_files_corr', str(selected_directory8) + '/output_corr')
-           	path = DIR2 + '/output_files_corr'
-                dirs = os.listdir(path)
-                os.chdir(DIR2 + '/output_files_corr')
-                for i in range(len(dirs)):
-                    os.remove(dirs[i])
-                os.chdir(DIR)
+            path = DIR2 + '/output_files_corr'
+            dirs = os.listdir(path)
+            os.chdir(DIR2 + '/output_files_corr')
+            for i in range(len(dirs)):
+                os.remove(dirs[i])
+            os.chdir(DIR)
 
 ################################################################
 #                         UPDATES
