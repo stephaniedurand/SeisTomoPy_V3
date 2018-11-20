@@ -1588,7 +1588,7 @@ class Window(QtWidgets.QMainWindow):
 
         	QMessageBox.critical(None, "Message", "This directory already exists in this directory")
         else:
-        	shutil.copytree(DIR2 + '/output_files_corr', str(selected_directory8) + '/output_corr')
+            shutil.copytree(DIR2 + '/output_files_corr', str(selected_directory8) + '/output_corr')
             path = DIR2 + '/output_files_corr'
             dirs = os.listdir(path)
             os.chdir(DIR2 + '/output_files_corr')
