@@ -13,7 +13,7 @@ import matplotlib.image as mpimg
 from obspy.taup import TauPyModel
 from obspy import taup
 import numpy as np
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
+# from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
 from matplotlib.transforms import Affine2D
 from matplotlib.projections import PolarAxes
 from mpl_toolkits.axisartist import angle_helper
@@ -1588,7 +1588,7 @@ class Window(QtWidgets.QMainWindow):
 
         	QMessageBox.critical(None, "Message", "This directory already exists in this directory")
         else:
-        	shutil.copytree(DIR2 + '/output_files_corr', str(selected_directory8) + '/output_corr')
+            shutil.copytree(DIR2 + '/output_files_corr', str(selected_directory8) + '/output_corr')
             path = DIR2 + '/output_files_corr'
             dirs = os.listdir(path)
             os.chdir(DIR2 + '/output_files_corr')
