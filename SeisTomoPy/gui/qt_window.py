@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/Users/durand/Documents/SeisTomoPy_V3.0/SeisTomoPy/gui/qt_window.ui'
+# Form implementation generated from reading ui file '/Users/stephaniedurand/Documents/SeisTomoPy_V3/SeisTomoPy/gui/qt_window.ui'
 #
 # Created by: PyQt5 UI code generator 5.6
 #
@@ -405,7 +405,7 @@ class Ui_SeisTomoPy(object):
         self.lon0_map.setMinimum(-180.0)
         self.lon0_map.setMaximum(180.0)
         self.lon0_map.setSingleStep(1.0)
-        self.lon0_map.setProperty("value", 140.0)
+        self.lon0_map.setProperty("value", -140.0)
         self.lon0_map.setObjectName("lon0_map")
         self.label_41 = QtWidgets.QLabel(self.Map)
         self.label_41.setGeometry(QtCore.QRect(90, 310, 191, 20))

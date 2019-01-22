@@ -12,21 +12,19 @@ SeisTomoPy has a number of dependencies listed below.
 
     gfortran : GNU Fortran (MacPorts gcc48 4.8.5_0) 4.8.5
 
-    Python 2.7, 3.5, 3.6
+    Python 2.7, 3.5, 3.6, 3.7
 
     iPython 5.8.0
 
-    matplotlib 2.2.3
+    matplotlib 3.0.2
 
     basemap 1.2.0
 
-    pyproj 1.9.5.1
+    pyproj 1.9.6
   
-    proj4 5.0.1
+    proj4 5.0.2
 
-    proj.4 4.9.1
-
-    numpy 1.15.1
+    numpy 1.15.4
 
     obspy 1.1.0
 
@@ -34,11 +32,9 @@ SeisTomoPy has a number of dependencies listed below.
 
     scipy 1.1.0
 
-    geopandas 0.3.0
-
 For installing the Python dependencies, please run :
 
-conda install -c conda-forge matplotlib numpy obspy pyqt scipy pyqtgraph basemap geopandas
+conda install -c conda-forge obspy h5py future requests tornado flake8 pytest mock basemap pyqt pip jsonschema responses pyqtgraph pytest-xdist
 
 # Installing SeisTomoPy
 
