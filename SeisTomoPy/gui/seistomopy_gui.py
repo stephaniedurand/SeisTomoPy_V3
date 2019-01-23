@@ -30,7 +30,7 @@ from scipy.spatial import distance
 import re
 import SeisTomoPy as SeisTomoPy
 from os.path import expanduser
-import geopandas
+# import geopandas
 # import conda
 
 # conda_file_dir = conda.__file__

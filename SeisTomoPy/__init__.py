@@ -24,7 +24,7 @@ import re
 # from geographiclib.geodesic import Geodesic
 from os.path import expanduser
 import mpl_toolkits.axisartist.floating_axes as floating_axes
-import geopandas
+# import geopandas
 # import conda 
 
 # conda_file_dir = conda.__file__
