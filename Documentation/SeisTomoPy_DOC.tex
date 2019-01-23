@@ -353,11 +353,32 @@ This means that certain tomographic models are not suitable to be included in th
 
 \section{Requirements}
 
-SeisTomoPy is a Python software that can run on any version of Python from 2.6 to 3.6. However, we highly recommend to install Python 3.6, since Python 2.7 will be maintained until 1$^\textrm{rst}$ January 2020 only. You can download anaconda using this link:
+SeisTomoPy is a Python software that can run on any version of Python from 2.6 to 3.7. However, we highly recommend to install Python 3.7, since Python 2.7 will be maintained until 1$^\textrm{rst}$ January 2020 only. You can download anaconda using this link:
 
 \noindent \url{https://www.anaconda.com/download/#macos}
 \\
 \\
+Please check that at the end of the installation of anaconda there is a \verb?~/.bash_profile? file that looks like:
+\\
+\\
+\verb?# added by Anaconda3 2018.12 installer?\\
+\verb?# >>> conda init >>>?\\
+\verb?# !! Contents within this block are managed by 'conda init' !!?\\
+\verb?__conda_setup="$(CONDA_REPORT_ERRORS=false '/Users/YOURNAME/anaconda3/bin/conda'?\\
+\verb? shell.bash hook 2> /dev/null)"?\\
+\verb?if [ $? -eq 0 ]; then?\\
+\verb?    \eval "$__conda_setup"?\\
+\verb?else?\\
+\verb?    if [ -f "/Users/YOURNAME/anaconda3/etc/profile.d/conda.sh" ]; then?\\
+\verb?        . "/Users/YOURNAME/anaconda3/etc/profile.d/conda.sh"?\\
+\verb?        CONDA_CHANGEPS1=false conda activate base?\\
+\verb?    else?\\
+\verb?        \export PATH="/Users/YOURNAME/anaconda3/bin:$PATH"?\\
+\verb?    fi?\\
+\verb?fi?\\
+\verb?unset __conda_setup?\\
+\verb?# <<< conda init <<<?\\
+
 SeisTomoPy has a number of dependencies listed below.
 
 \begin{itemize}
@@ -371,7 +392,8 @@ SeisTomoPy has a number of dependencies listed below.
 \item scipy 0.17.0
 \end{itemize}
 For installing the Python dependencies, please run :\\
-\verb?conda install -c conda-forge matplotlib numpy obspy pyqt scipy pyqtgraph basemap proj4?\\
+\verb?conda install -c conda-forge obspy h5py future requests tornado flake8 pytest  ?\\
+\verb?mock basemap pyqt pip jsonschema responses pyqtgraph pytest-xdist?\\
 
 \noindent If there is any problem with the compilation of fortran source files, we recommand to install fortran using:\\
 \url{https://gcc.gnu.org/wiki/GFortranBinaries}
@@ -395,30 +417,7 @@ Clone the git repository and install in an editable fashion:\\
 
 \section{Reported bugs}
 
-There is currently some bugs with the installation of Basemap package with the last version of anaconda.  It looks like
-
-\verb?.../anaconda/lib/python2.7/site-packages/mpl_toolkits/basemap/__init__.py in <module>()?\\
-\verb?    153?\\
-\verb?    154 # create dictionary that maps epsg codes to Basemap kwargs.?\\
-\verb?--> 155 pyproj_datadir = os.environ['PROJ_LIB']?\\
-\verb?    156 epsgf = open(os.path.join(pyproj_datadir,'epsg'))?\\
-\verb?    157 epsg_dict={}?\\
-
-\verb?.../anaconda/lib/python2.7/UserDict.pyc in __getitem__(self, key)?\\
-\verb?     38         if hasattr(self.__class__, "__missing__"):?\\
-\verb?     39             return self.__class__.__missing__(self, key)?\\
-\verb?---> 40         raise KeyError(key)?\\
-\verb?     41     def __setitem__(self, key, item): self.data[key] = item?\\
-\verb?     42     def __delitem__(self, key): del self.data[key]?\\
-
-\verb?KeyError: 'PROJ_LIB'?\\
-This is not related to SeisTomoPy and the solution seems to depend on the installation of conda and anaconda the user has. Many people reported that re-installing proj4 works 
-
-\verb?$ conda install -c conda-forge  proj4?\\
-We also found that it can be solved installing geopandas
-
-\verb?$ conda install geopandas?\\
-Please let us know if none of these solutions work.
+There is currently a problem with the projection in Maps when you want to change the center longitude. You can only use values from -180 to 0 degrees otherwise the projection fails. We are currently working on fixing this issue in the next version of SeisTomoPy.
 
   \section{How to use SeisTomoPy class}\label{how-to-use-SeisTomoPy-class }\label{important-starting-notes} 
 
