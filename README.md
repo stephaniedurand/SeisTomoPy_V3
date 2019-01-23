@@ -8,7 +8,28 @@ SeisTomoPy is a new Python tool that facilitates the use of a suite of tomograph
 
 # Requirements
 
-SeisTomoPy has a number of dependencies listed below.
+We recommend you to start with the installation of anaconda3:
+https://www.anaconda.com/download/#macos
+
+And please check that at the end of the installation of anaconda3 there is a ~/.bash_profile file that looks like:
+# added by Anaconda3 2018.12 installer
+# >>> conda init >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$(CONDA_REPORT_ERRORS=false '/Users/YOURNAME/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    \eval "$__conda_setup"
+else
+    if [ -f "/Users/YOURNAME/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/YOURNAME/anaconda3/etc/profile.d/conda.sh"
+        CONDA_CHANGEPS1=false conda activate base
+    else
+        \export PATH="/Users/YOURNAME/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda init <<< 
+
+Then SeisTomoPy has a number of dependencies listed below.
 
     gfortran : GNU Fortran (MacPorts gcc48 4.8.5_0) 4.8.5
 
@@ -35,6 +56,9 @@ SeisTomoPy has a number of dependencies listed below.
 For installing the Python dependencies, please run :
 
 conda install -c conda-forge obspy h5py future requests tornado flake8 pytest mock basemap pyqt pip jsonschema responses pyqtgraph pytest-xdist
+
+If there is any problem with the compilation of fortran source files, we recommand to install fortran using:
+https://gcc.gnu.org/wiki/GFortranBinaries
 
 # Installing SeisTomoPy
 
