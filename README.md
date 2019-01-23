@@ -39,7 +39,7 @@ Then SeisTomoPy has a number of dependencies listed below.
 
     Python 2.7, 3.5, 3.6, 3.7
 
-    iPython 5.8.0
+    iPython 7.2.0
 
     matplotlib 3.0.2
 
