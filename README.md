@@ -9,6 +9,7 @@ SeisTomoPy is a new Python tool that facilitates the use of a suite of tomograph
 # Requirements
 
 We recommend you to start with the installation of anaconda3:
+
 https://www.anaconda.com/download/#macos
 
 And please check that at the end of the installation of anaconda3 there is a ~/.bash_profile file that looks like:
