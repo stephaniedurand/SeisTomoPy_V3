@@ -13,7 +13,7 @@ We recommend you to start with the installation of anaconda3:
 https://www.anaconda.com/download/#macos
 
 And please check that at the end of the installation of anaconda3 there is a ~/.bash_profile file that looks like:
-># added by Anaconda3 2018.12 installer
+```# added by Anaconda3 2018.12 installer```
 ># >>> conda init >>>
 ># !! Contents within this block are managed by 'conda init' !!
 >__conda_setup="$(CONDA_REPORT_ERRORS=false '/Users/YOURNAME/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
