@@ -59,7 +59,7 @@ Then SeisTomoPy has a number of dependencies listed below.
 
 For installing the Python dependencies, please run :
 
-conda install -c conda-forge obspy h5py future requests tornado flake8 pytest mock basemap pyqt pip jsonschema responses pyqtgraph pytest-xdist
+conda install -c conda-forge obspy h5py basemap pyqt pip pyqtgraph
 
 If there is any problem with the compilation of fortran source files, we recommand to install fortran using:
 https://gcc.gnu.org/wiki/GFortranBinaries
