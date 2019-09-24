@@ -169,10 +169,10 @@ if __name__ == "__main__":
     os.chdir('../')
     if sys.version_info[0] == 2:
         import urllib
-        urllib.urlretrieve("http://earth.uni-muenster.de/~durand/models.zip","models.zip")
+        urllib.urlretrieve("http://http://perso.ens-lyon.fr/stephanie.durand/models.zip","models.zip")
     else:
         import urllib.request 
-        urllib.request.urlretrieve("http://earth.uni-muenster.de/~durand/models.zip","models.zip")
+        urllib.request.urlretrieve("http://http://perso.ens-lyon.fr/stephanie.durand/models.zip","models.zip")
     zip_ref = zipfile.ZipFile('models.zip', 'r')
     zip_ref.extractall()
     zip_ref.close()
