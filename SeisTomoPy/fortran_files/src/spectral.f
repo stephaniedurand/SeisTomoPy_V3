@@ -319,6 +319,7 @@ c
        real*8 data1(1024),data2(1024),z
        complex*16 fft1(1024),fft2(1024)
        real*8 ffft1(1024)
+       real*8 fft1r(512)
        integer k,i,j,ni,isigne
        parameter(pippi=6.28318530717959d0)
 c
@@ -355,7 +356,26 @@ c
      &                     -data(i,j+1)+data(ni,j))
  20    continue
        fft1(nlong/2+1)=dcmplx(0.d0,0.d0)
-       call four1(fft1,nlong,isigne)
+
+c      Conversion complex*16 -> tableau reel pour four1
+       do 30 k=1,nlong
+          fft1r(2*k-1)=dreal(fft1(k))
+          fft1r(2*k)=dimag(fft1(k))
+ 30    continue
+
+       call four1(fft1r,nlong,isigne)
+
+
+c      Retour vers tableau complexe
+       do 35 k=1,nlong
+          fft1(k)=dcmplx(fft1r(2*k-1),fft1r(2*k))
+ 35    continue
+
+
+c ERREUR DE COMPILATION
+c       call four1(fft1,nlong,isigne)
+
+
        do 40 j=1,nlong
        data(i,j)=dreal(fft1(j))
        data(ni,j)=dimag(fft1(j))
@@ -376,13 +396,31 @@ c*************************************************************************
       implicit none
       integer n,j,n2
       real*8 data1(n),data2(n)  
+      real*8 fft1r(2*n)
       complex*16 fft1(n),fft2(n),h1,h2,c1,c2
       c1=dcmplx(0.5d0,0.0d0)
       c2=dcmplx(0.0d0,-0.5d0)
       do 11 j=1,n
       fft1(j)=dcmplx(data1(j),data2(j))
 11    continue
-      call four1(fft1,n,1)
+
+c     Convert complex array to the real/interleaved format
+c     expected by four1
+      do 15 j=1,n
+         fft1r(2*j-1)=dreal(fft1(j))
+         fft1r(2*j)=dimag(fft1(j))
+15    continue
+
+c     FFT
+      call four1(fft1r,n,1)
+
+c     Convert back to complex
+      do 16 j=1,n
+         fft1(j)=dcmplx(fft1r(2*j-1),fft1r(2*j))
+16    continue
+
+c ERREUR DE COMPILATION
+c      call four1(fft1,n,1)
 c
       fft2(1)=dcmplx(dimag(fft1(1)),0.0d0)
       fft1(1)=dcmplx(dreal(fft1(1)),0.0d0)
